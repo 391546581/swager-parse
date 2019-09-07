@@ -1,0 +1,25 @@
+package {{apiPackage}};
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+{{#importList}}
+import {{{import}}};
+{{/importList}}
+
+@RestController
+public class {{className}}
+{
+     //接口注入，逻辑均在实现类中实现
+    {{className}}Handle handle;
+{{#infoList}}
+{{#hasGet}}
+    @RequestMapping(value = "{{urlName}}",method = RequestMethod.GET)
+    public {{responseType}} {{path.get.operationId}}(HttpServletRequest request{{#path.get.parameters}}, @PathVariable {{type}} {{name}}{{/path.get.parameters}}) {
+
+        return handle.{{path.get.operationId}}(request{{#path.get.parameters}}, {{name}}{{/path.get.parameters}});
+    }
+ {{/hasGet}}
+{{/infoList}}
+}

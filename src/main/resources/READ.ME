@@ -1,0 +1,24 @@
+java -jar D:\env\swagger-codegen-cli-2.2.1.jar generate
+
+  -i http://petstore.swagger.io/v2/swagger.json
+
+  -l java
+
+  -o D:\swagger-client
+
+  --model-package com.xxx.client.model
+
+  --api-package com.xxx.client.api
+  【参数说明】
+
+    -jar 指定 swagger-codegen-cli-2.2.1.jar 的位置，绝对路径、相对路径均可；
+
+    -i 指定 swagger.json 的位置，本地路径、网络路径均可；
+
+    -l 指定客户端代码的语言；
+
+    -o 指定代码生成的位置；
+
+    --model-package 指定model代码的包名；
+
+    --api-package 指定api代码的包名；
