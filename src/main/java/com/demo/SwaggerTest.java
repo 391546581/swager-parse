@@ -38,8 +38,8 @@ public class SwaggerTest
         ClientOptInput input = new ClientOptInput().opts(new ClientOpts()).swagger(swagger);
         input.setConfig(serviceCodegen);
 
-        ApiCodegen apiCodegen = new ApiCodegen();
-        apiCodegen.opts(input).generate();
+        EnhanceCodeGen enhanGen = new EnhanceCodeGen();
+        enhanGen.opts(input).generate();
 
     }
 
@@ -47,6 +47,7 @@ public class SwaggerTest
         SwaggerTest swaggerTest = new SwaggerTest();
         try {
             swaggerTest.Test("src/main/resources/swagger.json");
+//            swaggerTest.Test("http://192.168.1.116/apos.pay/swagger/apospay_all/swagger.json");
         } catch (IOException e) {
             e.printStackTrace();
         }
