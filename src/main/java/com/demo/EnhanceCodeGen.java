@@ -33,6 +33,14 @@ public class EnhanceCodeGen extends DefaultGenerator {
         public String name;
         public String desc;
         public String type;
+        public Bean() {
+        }
+
+        public Bean(String name, String desc, String type) {
+            this.name = name;
+            this.desc = desc;
+            this.type = type;
+        }
     }
 
     @Override
@@ -78,6 +86,7 @@ public class EnhanceCodeGen extends DefaultGenerator {
             b.desc = model.getDescription();
             beans.add(b);
             beans.addAll(genPropBean(model.getProperties()));
+            beans.add(new Bean("==================","","=================="));
         }
         return beans;
     }
